@@ -1,4 +1,5 @@
 import React, { useState, FormEvent } from "react";
+import { useHistory } from "react-router-dom";
 
 import PageHeader from "../../components/PageHeader";
 import Input from "../../components/Input";
@@ -8,8 +9,11 @@ import Select from "../../components/Select";
 import warningIcon from "../../assets/images/icons/warning.svg";
 
 import "./styles.css";
+import api from "../../services/api";
 
 const TeacherForm: React.FC = () => {
+  const history = useHistory();
+
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
@@ -45,7 +49,25 @@ const TeacherForm: React.FC = () => {
 
   function handleCreateClass(e: FormEvent) {
     e.preventDefault();
-    console.log({ name, avatar, whatsapp, bio, subject, cost });
+
+    api
+      .post("classes", {
+        name,
+        avatar,
+        whatsapp,
+        bio,
+        subject,
+        cost: Number(cost),
+        schedule: scheduleItems,
+      })
+      .then(() => {
+        alert("Cadastro realizado com sucesso!");
+
+        history.push("/");
+      })
+      .catch(() => {
+        alert("Erro no cadastro!");
+      });
   }
 
   function addNewScheduleItem() {
@@ -75,27 +97,27 @@ const TeacherForm: React.FC = () => {
               name="name"
               label="Nome Completo"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={e => setName(e.target.value)}
             />
 
             <Input
               name="avatar"
               label="Avatar"
               value={avatar}
-              onChange={(e) => setAvatar(e.target.value)}
+              onChange={e => setAvatar(e.target.value)}
             />
 
             <Input
               name="whatsapp"
               label="Whatsapp"
               value={whatsapp}
-              onChange={(e) => setWhatsapp(e.target.value)}
+              onChange={e => setWhatsapp(e.target.value)}
             />
             <Textarea
               name="bio"
               label="Biografia"
               value={bio}
-              onChange={(e) => setBio(e.target.value)}
+              onChange={e => setBio(e.target.value)}
             />
           </fieldset>
 
@@ -117,14 +139,14 @@ const TeacherForm: React.FC = () => {
                 { value: "Geografia", label: "Geografia" },
               ]}
               value={subject}
-              onChange={(e) => setSubject(e.target.value)}
+              onChange={e => setSubject(e.target.value)}
             />
 
             <Input
               name="cost"
               label="Custo da sua hora por aula"
               value={cost}
-              onChange={(e) => setCost(e.target.value)}
+              onChange={e => setCost(e.target.value)}
             />
           </fieldset>
 
@@ -136,12 +158,12 @@ const TeacherForm: React.FC = () => {
               </button>
             </legend>
             {scheduleItems.map(({ week_day, from, to }, index) => (
-              <div key={week_day} className="schedule-item">
+              <div key={index} className="schedule-item">
                 <Select
                   name="week_day"
                   label="Dia da semana"
                   value={week_day}
-                  onChange={(e) =>
+                  onChange={e =>
                     setScheduleItemValue(index, "week_day", e.target.value)
                   }
                   options={[
@@ -160,7 +182,7 @@ const TeacherForm: React.FC = () => {
                   label="Das"
                   type="time"
                   value={from}
-                  onChange={(e) =>
+                  onChange={e =>
                     setScheduleItemValue(index, "from", e.target.value)
                   }
                 />
@@ -169,7 +191,7 @@ const TeacherForm: React.FC = () => {
                   label="Até"
                   type="time"
                   value={to}
-                  onChange={(e) =>
+                  onChange={e =>
                     setScheduleItemValue(index, "to", e.target.value)
                   }
                 />
