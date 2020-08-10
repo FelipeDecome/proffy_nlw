@@ -57,7 +57,7 @@ const TeacherList: React.FC = () => {
         .then(response => {
           if (response.data.length <= 0) {
             setResponseMessage(
-              `Nenhum Proffy de ${subject} disponível na ${
+              `Nenhum Proffy de ${subject} disponível ${
                 week_days[Number(week_day)]
               } às ${time}, tente mudar o dia ou a hora.`
             );
