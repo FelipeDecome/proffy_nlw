@@ -1,11 +1,17 @@
 import React from "react";
+import { ThemeProvider } from "styled-components";
+import GlobalStyle from "./assets/styles/GlobalStyle";
+import light from "./assets/styles/Themes/light";
 
 import Routes from "./routes";
 
-import "./assets/styles/global.css";
-
 const App: React.FC = () => {
-  return <Routes />;
+  return (
+    <ThemeProvider theme={light}>
+      <GlobalStyle />
+      <Routes />
+    </ThemeProvider>
+  );
 };
 
 export default App;
