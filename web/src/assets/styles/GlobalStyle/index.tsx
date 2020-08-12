@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
 :root {
@@ -64,4 +64,9 @@ textarea {
   }
 }
 
+`;
+
+export const Container = styled.div`
+  width: 90vw;
+  max-width: 700px;
 `;
