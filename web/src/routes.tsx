@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Landing from "./pages/Landing";
 import TeacherList from "./pages/TeacherList";
 import TeacherForm from "./pages/TeacherForm";
-import SuccessPage from "./pages/SuccessPage";
+import MessagePage from "./pages/MessagePage";
 
 const ErrorPage = () => {
   return (
@@ -22,7 +22,7 @@ const Routes: React.FC = () => {
         <Route path="/study" component={TeacherList} />
         <Route path="/give-classes" component={TeacherForm} />
         <Route path="/give-classes" component={TeacherForm} />
-        <Route path="/success" component={SuccessPage} />
+        <Route path="/success" component={MessagePage} />
         <Route component={ErrorPage} />
       </Switch>
     </BrowserRouter>
