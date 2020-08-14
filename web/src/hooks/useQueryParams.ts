@@ -1,30 +1,11 @@
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-
-interface QueryParams {
-  name: string;
-  value: string;
-}
-
 export default function useQueryParams() {
-  const [queryParams, setQueryParams] = useState<QueryParams[]>([]);
-  const location = useLocation();
+  const searchParams = new URL(document.location.href).searchParams;
 
-  useEffect(() => {
-    let { search } = location;
-    let searchParams = search.replace("?", "").split("&");
+  function getParam(paramName: string) {
+    return searchParams.get(paramName) || "";
+  }
 
-    let newQueryParams: QueryParams[] = [];
-
-    searchParams.forEach((searchParam) => {
-      let searchParamParsed = searchParam.split("=");
-      let [name, value] = searchParamParsed;
-
-      newQueryParams.push({ name, value });
-    });
-
-    setQueryParams(newQueryParams);
-  }, [location]);
-
-  return queryParams;
+  return {
+    getParam,
+  };
 }
