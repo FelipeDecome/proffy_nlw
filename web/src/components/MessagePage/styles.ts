@@ -1,20 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.textInPrimary};
-`;
-
-export const Content = styled(Container)`
-  max-width: 1100px;
-`;
-
 export const ImgBackground = styled.img`
   width: 100%;
   max-height: 90vh;
@@ -22,32 +7,57 @@ export const ImgBackground = styled.img`
 
 export const Main = styled.main`
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  top: 0;
+  right: 0;
+
+  width: 100%;
+  height: 100%;
 `;
 
 export const MessageTitle = styled.h1`
+  text-align: center;
+
   margin-top: 2.4rem;
+  font-size: 2.4rem;
 
   color: ${({ theme }) => theme.colors.titleInPrimary};
+
+  @media (min-width: 700px) {
+    font-size: 3.6rem;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 4.8rem;
+  }
 `;
 
 export const Message = styled.p`
   text-align: center;
 
-  width: 60%;
+  font-size: 1.2rem;
+  width: 70%;
   max-width: 48rem;
-  margin: 1.6rem 0 6rem;
+  margin: 1.6rem 0 4rem;
+
+  @media (min-width: 700px) {
+    font-size: inherit;
+    margin: 2rem 0 6rem;
+  }
+
+  @media (min-width: 1200px) {
+    margin: 2.4rem 0 8rem;
+    max-width: 60rem;
+  }
 `;
 
-export const Img = styled.img``;
+export const MessageIcon = styled.img`
+  width: 10rem;
 
-export const ButtonsWrapper = styled.div`
-  display: flex;
+  @media (min-width: 700px) {
+    width: 12rem;
+  }
 `;

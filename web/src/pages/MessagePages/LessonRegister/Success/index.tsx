@@ -8,7 +8,7 @@ import successBgLgImg from "../../../../assets/images/background-lg.svg";
 import successIcon from "../../../../assets/images/icons/success-check-icon.svg";
 
 import MessagePage from "../../../../components/MessagePage";
-import { Secondary } from "../../../../components/Button";
+import { Secondary, ButtonsWrapper } from "../../../../components/Button";
 import { Link } from "react-router-dom";
 
 const LessonRegisterSuccess: React.FC = () => {
@@ -36,12 +36,13 @@ const LessonRegisterSuccess: React.FC = () => {
       title="Cadastro salvo com sucesso!"
       message="Tudo certo, seu cadastro está na nossa lista de professores.
       Agora é só ficar de olho no seu WhatsApp."
-      buttons={
+    >
+      <ButtonsWrapper>
         <Secondary as={Link} to="/study">
           Acessar lista
         </Secondary>
-      }
-    />
+      </ButtonsWrapper>
+    </MessagePage>
   );
 };
 

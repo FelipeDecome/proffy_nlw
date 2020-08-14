@@ -1,16 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { StyledComponent } from "styled-components";
 
+import PageDefault from "../PageDefault";
 import {
-  Container,
-  Content,
   ImgBackground,
   Main,
-  Img,
+  MessageIcon,
   MessageTitle,
   Message,
-  ButtonsWrapper,
 } from "./styles";
 
 interface Image {
@@ -18,18 +14,11 @@ interface Image {
   alt: string;
 }
 
-interface Button {
-  Type: StyledComponent<any, any, any, any>;
-  text: React.ReactNode;
-  to: string;
-}
-
 interface MessagePageProps {
   background: Image;
   icon: Image;
   title: string;
   message: string;
-  buttons: JSX.Element;
 }
 
 const MessagePage: React.FC<MessagePageProps> = ({
@@ -37,20 +26,18 @@ const MessagePage: React.FC<MessagePageProps> = ({
   icon,
   title,
   message,
-  buttons,
+  children,
 }) => {
   return (
-    <Container>
-      <Content>
-        <ImgBackground src={background.src} alt={background.alt} />
-        <Main>
-          <Img src={icon.src} alt={icon.alt} />
-          <MessageTitle>{title}</MessageTitle>
-          <Message>{message}</Message>
-          <ButtonsWrapper>{buttons}</ButtonsWrapper>
-        </Main>
-      </Content>
-    </Container>
+    <PageDefault>
+      <ImgBackground src={background.src} alt={background.alt} />
+      <Main>
+        <MessageIcon src={icon.src} alt={icon.alt} />
+        <MessageTitle>{title}</MessageTitle>
+        <Message>{message}</Message>
+        {children}
+      </Main>
+    </PageDefault>
   );
 };
 
