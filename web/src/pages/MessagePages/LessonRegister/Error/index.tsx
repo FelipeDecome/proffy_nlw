@@ -3,7 +3,7 @@ import useWindowSize from "../../../../hooks/useWindowSize";
 import { Link } from "react-router-dom";
 
 import MessagePage from "../../../../components/MessagePage";
-import { Cancel, Primary } from "../../../../components/Button";
+import { Cancel, Primary, ButtonsWrapper } from "../../../../components/Button";
 
 import successBgSmImg from "../../../../assets/images/background-error-sm.svg";
 import successBgMdImg from "../../../../assets/images/background-error-md.svg";
@@ -35,17 +35,16 @@ const LessonRegisterError: React.FC = () => {
       icon={{ src: errorIcon, alt: "Mal sucedido" }}
       title="Cadastro não realizado!"
       message="Houve algum problema com o cadastro, tente novamente. Caso o problema persista você pode nos notificar no link abaixo ."
-      buttons={
-        <>
-          <Primary as={Link} to="/report-bug">
-            Reportar problema
-          </Primary>
-          <Cancel as={Link} to="/give-classes">
-            Voltar ao formulário
-          </Cancel>
-        </>
-      }
-    />
+    >
+      <ButtonsWrapper>
+        <Primary as={Link} to="/report-bug">
+          Reportar problema
+        </Primary>
+        <Cancel as={Link} to="/give-classes">
+          Voltar ao formulário
+        </Cancel>
+      </ButtonsWrapper>
+    </MessagePage>
   );
 };
 

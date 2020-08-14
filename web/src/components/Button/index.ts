@@ -6,19 +6,33 @@ const Button = styled.button`
   justify-content: space-evenly;
 
   height: 5.6rem;
-  padding: 1.5rem 4rem;
+  width: 90%;
   border: 0;
   border-radius: 0.8rem;
 
   color: ${({ theme }) => theme.colors.buttonText};
   cursor: pointer;
-  font: 700 1.4rem Archivo;
+  font-family: Archivo;
+  font-size: 1.4rem;
+  font-weight: 700;
   text-decoration: none;
 
   transition: 0.2s;
 
-  & + a {
-    margin-left: 0.8rem;
+  & + a,
+  & + button {
+    margin-top: 0.8rem;
+  }
+
+  @media (min-width: 700px) {
+    width: auto;
+    padding: 1.5rem 4rem;
+
+    & + a,
+    & + button {
+      margin-left: 0.8rem;
+      margin-top: 0;
+    }
   }
 `;
 
@@ -46,4 +60,17 @@ const Cancel = styled(Button)`
   }
 `;
 
-export { Primary, Secondary, Cancel };
+const ButtonsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 90%;
+
+  @media (min-width: 700px) {
+    flex-direction: row;
+  }
+`;
+
+export { Primary, Secondary, Cancel, ButtonsWrapper };

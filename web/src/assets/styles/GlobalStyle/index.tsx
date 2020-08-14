@@ -62,6 +62,13 @@ textarea {
   :root {
     font-size: 62.5%;
   }
+
+  body,
+input,
+button,
+textarea {
+  font-size: 1.8rem;
+}
 }
 
 `;
