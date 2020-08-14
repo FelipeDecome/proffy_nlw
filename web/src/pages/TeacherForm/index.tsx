@@ -47,10 +47,10 @@ const TeacherForm: React.FC = () => {
     setScheduleItems(parsedArray);
   }
 
-  function handleCreateClass(e: FormEvent) {
+  async function handleCreateClass(e: FormEvent) {
     e.preventDefault();
 
-    api
+    await api
       .post("classes", {
         name,
         avatar,
@@ -63,10 +63,10 @@ const TeacherForm: React.FC = () => {
       .then(() => {
         alert("Cadastro realizado com sucesso!");
 
-        history.push("/");
+        history.push("/give-classes/success");
       })
       .catch(() => {
-        alert("Erro no cadastro!");
+        history.push("/give-classes/error");
       });
   }
 

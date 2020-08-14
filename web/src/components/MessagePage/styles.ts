@@ -41,8 +41,13 @@ export const MessageTitle = styled.h1`
 export const Message = styled.p`
   text-align: center;
 
-  max-width: 60%;
+  width: 60%;
+  max-width: 48rem;
   margin: 1.6rem 0 6rem;
 `;
 
 export const Img = styled.img``;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+`;

@@ -4,7 +4,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Landing from "./pages/Landing";
 import TeacherList from "./pages/TeacherList";
 import TeacherForm from "./pages/TeacherForm";
-import MessagePage from "./pages/MessagePage";
+import LessonRegisterSuccess from "./pages/MessagePages/LessonRegister/Success";
+import LessonRegisterError from "./pages/MessagePages/LessonRegister/Error";
 
 const ErrorPage = () => {
   return (
@@ -20,9 +21,9 @@ const Routes: React.FC = () => {
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route path="/study" component={TeacherList} />
-        <Route path="/give-classes" component={TeacherForm} />
-        <Route path="/give-classes" component={TeacherForm} />
-        <Route path="/success" component={MessagePage} />
+        <Route exact path="/give-classes" component={TeacherForm} />
+        <Route path="/give-classes/success" component={LessonRegisterSuccess} />
+        <Route path="/give-classes/error" component={LessonRegisterError} />
         <Route component={ErrorPage} />
       </Switch>
     </BrowserRouter>
