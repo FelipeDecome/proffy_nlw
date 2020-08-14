@@ -23,6 +23,8 @@ declare module "styled-components" {
       buttonText: string;
       boxBase: string;
       boxFooter: string;
+      cancel: string;
+      cancelDark: string;
     };
   }
 }

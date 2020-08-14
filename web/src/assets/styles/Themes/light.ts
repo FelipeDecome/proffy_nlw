@@ -20,5 +20,7 @@ export default {
     buttonText: "#ffffff",
     boxBase: "#ffffff",
     boxFooter: "#fafafc",
+    cancel: "#FF5757",
+    cancelDark: "#FF4646",
   },
 };
