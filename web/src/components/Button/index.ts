@@ -1,5 +1,50 @@
 import styled from "styled-components";
 
+const ButtonLarge = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30rem;
+  height: 10.4rem;
+  border-radius: 0.8rem;
+
+  font: 700 2rem Archivo;
+  color: ${({ theme }) => theme.colors.buttonText};
+  text-decoration: none;
+
+  transition: background-color 0.2s;
+
+  & + a,
+  & + button {
+    margin-top: 0.8rem;
+  }
+
+  @media (min-width: 700px) {
+    & + a,
+    & + button {
+      margin-left: 0.8rem;
+      margin-top: 0;
+    }
+  }
+`;
+
+export const PrimaryLarge = styled(ButtonLarge)`
+  background: ${({ theme }) => theme.colors.primaryLighter};
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.primaryLight};
+  }
+`;
+
+export const SecondaryLarge = styled(ButtonLarge)`
+  background: ${({ theme }) => theme.colors.secondary};
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.secondaryDark};
+  }
+`;
+
 const Button = styled.button`
   display: flex;
   align-items: center;
@@ -27,6 +72,7 @@ const Button = styled.button`
   @media (min-width: 700px) {
     width: auto;
     padding: 1.5rem 4rem;
+    font-size: 1.6rem;
 
     & + a,
     & + button {

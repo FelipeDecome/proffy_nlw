@@ -9,48 +9,39 @@ import studyIcon from "../../assets/images/icons/study.svg";
 import giveClassesIcon from "../../assets/images/icons/give-classes.svg";
 import purpleHeartIcon from "../../assets/images/icons/purple-heart.svg";
 
-import "./styles.css";
+import PageDefault from "../../components/PageDefault";
+import HeaderBar from "../../components/HeaderBar";
+import {
+  LandingWrapper,
+  LandingMain,
+  LogoContainer,
+  HeroContainer,
+} from "./styles";
 
 const Landing: React.FC = () => {
   const [totalConnections, setTotalConnections] = useState(0);
 
   useEffect(() => {
-    api.get("connections").then((res) => {
+    api.get("connections").then(res => {
       const { total } = res.data;
       setTotalConnections(total);
     });
   }, []);
 
   return (
-    <div id="page-landing">
-      <div id="page-landing-content" className="container">
-        <div className="logo-container">
+    <LandingWrapper>
+      <HeaderBar />
+      <LandingMain>
+        <LogoContainer>
           <img src={logoImg} alt="Proffy" />
           <h2>Sua plataforma de estudos online.</h2>
-        </div>
-        <img
-          src={landingImg}
-          alt="Plataforma de estudos"
-          className="hero-image"
-        />
-
-        <div className="buttons-container">
-          <Link to="/study" className="study">
-            <img src={studyIcon} alt="Estudar" />
-            Estudar
-          </Link>
-          <Link to="/give-classes" className="give-classes">
-            <img src={giveClassesIcon} alt="Dar aulas" />
-            Dar aulas
-          </Link>
-        </div>
-
-        <span className="total-connections">
-          Total de {totalConnections} conexões já realizadas{" "}
-          <img src={purpleHeartIcon} alt="Coração roxo" />
-        </span>
-      </div>
-    </div>
+        </LogoContainer>
+        <HeroContainer>
+          <img src={landingImg} alt="Plataforma de estudos" />
+        </HeroContainer>
+      </LandingMain>
+      <div></div>
+    </LandingWrapper>
   );
 };
 

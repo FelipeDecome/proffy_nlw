@@ -28,6 +28,8 @@ export default createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
+  outline: 0;
 }
 
 html,
@@ -38,12 +40,6 @@ body,
 
 body {
   background: var(--color-background);
-}
-
-#root {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 body,
@@ -64,11 +60,11 @@ textarea {
   }
 
   body,
-input,
-button,
-textarea {
-  font-size: 1.8rem;
-}
+  input,
+  button,
+  textarea {
+    font-size: 1.8rem;
+  }
 }
 
 `;
