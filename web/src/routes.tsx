@@ -6,7 +6,7 @@ import TeacherList from "./pages/TeacherList";
 import TeacherForm from "./pages/TeacherForm";
 import LessonRegisterSuccess from "./pages/MessagePages/LessonRegister/Success";
 import LessonRegisterError from "./pages/MessagePages/LessonRegister/Error";
-import Landing2 from "./pages/Landing/indextest";
+import Home from "./pages/Home";
 
 const ErrorPage = () => {
   return (
@@ -25,7 +25,7 @@ const Routes: React.FC = () => {
         <Route exact path="/give-classes" component={TeacherForm} />
         <Route path="/give-classes/success" component={LessonRegisterSuccess} />
         <Route path="/give-classes/error" component={LessonRegisterError} />
-        <Route path="/test" component={Landing2} />
+        <Route path="/test" component={Home} />
         <Route component={ErrorPage} />
       </Switch>
     </BrowserRouter>

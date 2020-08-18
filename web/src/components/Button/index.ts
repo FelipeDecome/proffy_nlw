@@ -5,27 +5,20 @@ const ButtonLarge = styled.button`
   align-items: center;
   justify-content: center;
 
-  width: 30rem;
-  height: 10.4rem;
+  width: 45vw;
+  height: 10rem;
   border-radius: 0.8rem;
 
+  border: 0;
   font: 700 2rem Archivo;
   color: ${({ theme }) => theme.colors.buttonText};
   text-decoration: none;
 
   transition: background-color 0.2s;
 
-  & + a,
-  & + button {
-    margin-top: 0.8rem;
-  }
-
-  @media (min-width: 700px) {
-    & + a,
-    & + button {
-      margin-left: 0.8rem;
-      margin-top: 0;
-    }
+  & > img {
+    width: 4rem;
+    margin-right: 2.4rem;
   }
 `;
 

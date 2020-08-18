@@ -18,5 +18,9 @@ export interface ContentProps {
 
 export const Content = styled.div<ContentProps>`
   width: 90vw;
-  max-width: ${props => props.contentMaxWidth || "1100px"};
+  max-width: ${(props) => props.contentMaxWidth || "700px"};
+
+  @media (min-width: 700px) {
+    width: 1100px;
+  }
 `;

@@ -6,7 +6,6 @@ interface PageDefaultProps extends ContentProps {}
 
 const PageDefault: React.FC<PageDefaultProps> = ({
   contentMaxWidth,
-
   children,
 }) => {
   return (
