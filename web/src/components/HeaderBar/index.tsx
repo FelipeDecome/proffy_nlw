@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useWindowSize from "../../hooks/useWindowSize";
 
 import logoutIcon from "../../assets/images/icons/logout.svg";
 import {
@@ -19,6 +20,8 @@ interface User {
 }
 
 const HeaderBar: React.FC = () => {
+  const [windowWidth] = useWindowSize();
+
   const [user] = useState<User>({
     id: 1,
     name: "Felipe Decome",
@@ -38,11 +41,12 @@ const HeaderBar: React.FC = () => {
           />
           {!isUserAvatarLoaded && <AvatarPlaceholder />}
 
-          {isUserNameSet ? (
-            <ProfileUsername id="nome-usuario">{user.name}</ProfileUsername>
-          ) : (
-            <ProfilePlaceholder />
-          )}
+          {windowWidth > 700 &&
+            (isUserNameSet ? (
+              <ProfileUsername id="nome-usuario">{user.name}</ProfileUsername>
+            ) : (
+              <ProfilePlaceholder />
+            ))}
         </Profile>
 
         <LogoutButton id="logout">

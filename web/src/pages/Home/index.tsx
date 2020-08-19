@@ -3,20 +3,20 @@ import styled from "styled-components";
 
 import HeaderBar from "../../components/HeaderBar";
 import PageDefault from "../../components/PageDefault";
+import { Primary, Secondary, ButtonsWrapper } from "../../components/Button";
 
 import landingImg from "../../assets/images/landing.svg";
-import { PrimaryLarge, SecondaryLarge } from "../../components/Button";
+import studyIcon from "../../assets/images/icons/study.svg";
+import giveClassesIcon from "../../assets/images/icons/give-classes.svg";
 
 const LandingWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
   width: 100vw;
   height: 100vh;
-
-  color: ${({ theme }) => theme.colors.textInPrimary};
-  background: ${({ theme }) => theme.colors.primary};
 `;
 
 const LandingMain = styled.main`
@@ -25,7 +25,12 @@ const LandingMain = styled.main`
   align-items: center;
   justify-content: flex-end;
 
-  padding-bottom: 2.4rem;
+  height: 100%;
+  max-width: 700px;
+  padding-bottom: 3.6rem;
+
+  color: ${({ theme }) => theme.colors.textInPrimary};
+  background: ${({ theme }) => theme.colors.primary};
 `;
 
 const LandingImg = styled.img`
@@ -36,14 +41,18 @@ const LandingFooter = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  width: 100%;
+  padding: 3.6rem 4rem;
 `;
 
-const FooterButtonsContainer = styled.div`
-  display: flex;
-  justify-content: center;
+const Greetings = styled.p`
+  font-family: Poppins;
+  font-size: 2rem;
+  font-weight: 400;
 
-  & > button + button {
-    margin-left: 0.8rem;
+  & span {
+    font-weight: 700;
   }
 `;
 
@@ -55,10 +64,18 @@ const Home: React.FC = () => {
         <LandingImg src={landingImg} alt="Proffy" />
       </LandingMain>
       <LandingFooter>
-        <FooterButtonsContainer>
-          <PrimaryLarge></PrimaryLarge>
-          <SecondaryLarge></SecondaryLarge>
-        </FooterButtonsContainer>
+        <Greetings>
+          Seja bem-vindo. <span>O que deseja fazer?</span>
+        </Greetings>
+
+        <Primary>
+          <img src={studyIcon} alt="Estudar" />
+          Estudar
+        </Primary>
+        <Secondary>
+          <img src={giveClassesIcon} alt="Dar aulas" />
+          Dar aulas
+        </Secondary>
       </LandingFooter>
     </LandingWrapper>
   );

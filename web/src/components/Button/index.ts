@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 const ButtonLarge = styled.button`
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
-  width: 45vw;
-  height: 10rem;
+  width: 36vw;
+  height: 14rem;
   border-radius: 0.8rem;
 
   border: 0;
@@ -18,7 +18,6 @@ const ButtonLarge = styled.button`
 
   & > img {
     width: 4rem;
-    margin-right: 2.4rem;
   }
 `;
 
@@ -38,24 +37,32 @@ export const SecondaryLarge = styled(ButtonLarge)`
   }
 `;
 
-const Button = styled.button`
+interface ButtonProps {
+  fontSize?: string;
+}
+
+const Button = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 
   height: 5.6rem;
-  width: 90%;
+  width: 100%;
   border: 0;
   border-radius: 0.8rem;
 
   color: ${({ theme }) => theme.colors.buttonText};
   cursor: pointer;
   font-family: Archivo;
-  font-size: 1.4rem;
+  font-size: ${({ fontSize }) => fontSize || "1.6rem"};
   font-weight: 700;
   text-decoration: none;
 
   transition: 0.2s;
+
+  & > img {
+    margin-right: 2.4rem;
+  }
 
   & + a,
   & + button {
@@ -65,7 +72,6 @@ const Button = styled.button`
   @media (min-width: 700px) {
     width: auto;
     padding: 1.5rem 4rem;
-    font-size: 1.6rem;
 
     & + a,
     & + button {
@@ -105,7 +111,7 @@ const ButtonsWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
 
-  width: 90%;
+  width: 80%;
 
   @media (min-width: 700px) {
     flex-direction: row;
