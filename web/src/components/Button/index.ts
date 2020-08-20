@@ -2,19 +2,25 @@ import styled from "styled-components";
 
 const ButtonLarge = styled.button`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
 
-  width: 36vw;
+  width: 100%;
   height: 14rem;
   border-radius: 0.8rem;
+  padding: 2rem;
 
   border: 0;
-  font: 700 2rem Archivo;
+  font: 700 1.8rem Archivo;
   color: ${({ theme }) => theme.colors.buttonText};
   text-decoration: none;
 
   transition: background-color 0.2s;
+
+  & + button,
+  & + a {
+    margin-left: 1.6rem;
+  }
 
   & > img {
     width: 4rem;

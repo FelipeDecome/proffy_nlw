@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import HeaderBar from "../../components/HeaderBar";
-import PageDefault from "../../components/PageDefault";
-import { Primary, Secondary, ButtonsWrapper } from "../../components/Button";
+import { PrimaryLarge, SecondaryLarge } from "../../components/Button";
 
 import landingImg from "../../assets/images/landing.svg";
 import studyIcon from "../../assets/images/icons/study.svg";
 import giveClassesIcon from "../../assets/images/icons/give-classes.svg";
+import heartIcon from "../../assets/images/icons/purple-heart.svg";
 
 const LandingWrapper = styled.div`
   display: flex;
@@ -26,11 +27,16 @@ const LandingMain = styled.main`
   justify-content: flex-end;
 
   height: 100%;
-  max-width: 700px;
+  width: 100%;
   padding-bottom: 3.6rem;
 
   color: ${({ theme }) => theme.colors.textInPrimary};
   background: ${({ theme }) => theme.colors.primary};
+`;
+
+const LandingImgContainer = styled.div`
+  width: 90%;
+  max-width: 600px;
 `;
 
 const LandingImg = styled.img`
@@ -46,6 +52,16 @@ const LandingFooter = styled.footer`
   padding: 3.6rem 4rem;
 `;
 
+const FooterButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  margin-top: 3.6rem;
+  margin-bottom: 3.6rem;
+`;
+
 const Greetings = styled.p`
   font-family: Poppins;
   font-size: 2rem;
@@ -56,26 +72,46 @@ const Greetings = styled.p`
   }
 `;
 
+const TotalConnections = styled.span`
+  font-size: 1.2rem;
+  color: ${({ theme }) => theme.colors.textComplement};
+
+  & > img {
+    margin-left: 0.8rem;
+  }
+`;
+
 const Home: React.FC = () => {
   return (
     <LandingWrapper>
       <HeaderBar />
+
       <LandingMain>
-        <LandingImg src={landingImg} alt="Proffy" />
+        <LandingImgContainer>
+          <LandingImg src={landingImg} alt="Proffy" />
+        </LandingImgContainer>
       </LandingMain>
+
       <LandingFooter>
         <Greetings>
           Seja bem-vindo. <span>O que deseja fazer?</span>
         </Greetings>
 
-        <Primary>
-          <img src={studyIcon} alt="Estudar" />
-          Estudar
-        </Primary>
-        <Secondary>
-          <img src={giveClassesIcon} alt="Dar aulas" />
-          Dar aulas
-        </Secondary>
+        <FooterButtonsContainer>
+          <PrimaryLarge as={Link} to="/study">
+            <img src={studyIcon} alt="Estudar" />
+            Estudar
+          </PrimaryLarge>
+          <SecondaryLarge as={Link} to="/give-classes">
+            <img src={giveClassesIcon} alt="Dar aulas" />
+            Dar aulas
+          </SecondaryLarge>
+        </FooterButtonsContainer>
+
+        <TotalConnections>
+          Total de 285 conexões já realizadas
+          <img src={heartIcon} alt="Coração roxo" />
+        </TotalConnections>
       </LandingFooter>
     </LandingWrapper>
   );
