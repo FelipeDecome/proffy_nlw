@@ -14,9 +14,6 @@ const placeholderAnimation = keyframes`
 `;
 
 export const HeaderWrapper = styled.header`
-  position: fixed;
-  top: 0;
-  left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
